@@ -1,0 +1,23 @@
+{
+	"name": "nehalvpatel/monolog-ifttt",
+	"type": "library",
+	"description": "IFTTT Handler for Monolog",
+	"keywords": ["log", "logging", "logger", "ifttt", "maker"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Nehal Patel",
+			"email": "nehal@nehalpatel.me",
+			"homepage": "http://www.nehalpatel.me",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"monolog/monolog": "1.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"nehalvpatel\\": "src/"
+		}
+	}
+}
