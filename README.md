@@ -31,15 +31,16 @@ $log->addError("Database error.");
 
 ### Options
 
-Just like any other Monolog handler, you can change the error level the handler controls. (the default is Logger::ERROR)
+Just like any other Monolog handler, you can change the minimum error level for the handler to fire.
 
 ```php
-$log->pushHandler(new IFTTTHandler("debug_occurred", $IFTTTSecretKey, Logger::DEBUG)); // debug
-$log->pushHandler(new IFTTTHandler("info_occurred", $IFTTTSecretKey, Logger::INFO)); // info
-$log->pushHandler(new IFTTTHandler("notice_occurred", $IFTTTSecretKey, Logger::NOTICE)); // notice
-$log->pushHandler(new IFTTTHandler("warning_occurred", $IFTTTSecretKey, Logger::WARNING)); // warning
-$log->pushHandler(new IFTTTHandler("error_occurred", $IFTTTSecretKey, Logger::ERROR)); // error
-$log->pushHandler(new IFTTTHandler("critical_occurred", $IFTTTSecretKey, Logger::CRITICAL)); // critical
-$log->pushHandler(new IFTTTHandler("alert_occurred", $IFTTTSecretKey, Logger::ALERT)); // alert
-$log->pushHandler(new IFTTTHandler("emergency_occurred", $IFTTTSecretKey, Logger::EMERGENCY)); // emergency
+$log->pushHandler(new IFTTTHandler($IFTTTEventName, $IFTTTSecretKey, Logger::DEBUG)); // the minimum level is now debug
 ```
+
+### Output
+
+Once triggered, the handler will send values in this format:
+
+- **Value1**: channel name *(eg: my_project_name)*
+- **Value2**: log level name *(eg: ERROR)*
+- **Value3**: log message *(eg: Database error.)*
